@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link href="{% static 'css/style3.css' %}" rel="stylesheet">
+</head>
+<body style="background-color:grey;">
+<div class="container" style="height:100px;background: rgba(255,255,255,0.5);">
+<form method="post">
+  {% csrf_token %}
+  <p>Are you sure you want to delete this account?</p>
+  <input type="submit" value="Delete">
+</form>
+<a href="{% url 'view_all' %}" style="color:blue;float:right;margin-right:30px;">Go Back</a>
+    </div>
+
+</body>
+</html>

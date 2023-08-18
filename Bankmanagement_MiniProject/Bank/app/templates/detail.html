@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <title>Title</title>
+    <link href="{% static 'css/style3.css' %}" rel="stylesheet">
+</head>
+<body>
+<div class="container" style="height:650px;">
+<h1 style="margin-left:40px;">Customer Details</h1>
+    <a href="{% url 'view_all' %}"><button>Go Back</button></a>
+<form method="post" action="">
+    <h4>Name of Customer: {{customers.name}}</h4>
+    <h4>Email-ID: {{customers.email}}</h4>
+    <h4>Date of Birth: {{customers.DOB}}</h4>
+    <h4>Aadhaar Number: {{customers.aadhaar_number}}</h4>
+    <h4>Account Type: {{customers.account_type}}</h4>
+    <h4>Account Number: {{customers.account_number}}</h4>
+    <h4>State: {{customers.state}}</h4>
+    <h4>City: {{customers.city}}</h4>
+    <h4>Country: {{customers.country}}</h4>
+
+</form>
+</div>
+</body>
+
+</html>

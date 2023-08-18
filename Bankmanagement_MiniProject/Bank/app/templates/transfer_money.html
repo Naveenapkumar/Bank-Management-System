@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link href="{% static 'css/style3.css' %}" rel="stylesheet">
+    <style>
+        input{
+        margin-bottom:30px;
+        width:200px;}
+    </style>
+</head>
+<body style="background-color:grey;">
+<div class="container" style="background: rgba(255,255,255,0.5);">
+    {% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-info">
+        {{message}}
+    </div>
+    {% endfor %}
+{% endif %}
+<h1 style=margin-left:10px;color:black;">Transfer Money</h1>
+    <a href="{% url 'balance' %}" style="color:blue;">Go Back</a>
+<form method="post" action="">
+    {% csrf_token %}
+  <div style="display:flex;flex-direction:column;">
+    <input type="text" name="user_one" id="user_one" placeholder="Enter Name">
+      <input type="text" name="acc_num1" id="acc_num1" placeholder="Account Number">
+  </div>
+  <div style="display:flex;flex-direction:column;">
+    <input type="text" name="user_two" id="user_two" placeholder="Enter Recipient Name ">
+      <input type="text" name="acc_num2" id="acc_num2" placeholder="Account Number">
+  </div>
+     <div>
+    <input type="text" name="amount" id="amount" placeholder="Amount">
+  </div>
+    <button type="submit">Submit</button>
+</form>
+    </div>
+</body>
+</html>

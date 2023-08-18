@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <style>
+    body{
+        margin: 0;
+        padding:0;
+        height:100vh;
+        background-image: url('{% static 'images/bgd.jpg' %}');
+        opacity:0.8;
+        }
+        .container{
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%);
+        width:450px;
+        background-color:#ffa8B6;
+        border-radius: 15px;
+        height:450px;
+        }
+        .container form{
+       padding:0px 30px;}
+       .btn-success{
+        width:30%;
+        height:40px;
+        margin:10px 140px;
+        border-radius:10px;
+        border:0;
+        font-weight: bold;
+        background-color: #ff004f;}
+        .btn-success:hover{
+        background-color:grey;}
+
+        </style>
+</head>
+<body>
+<div class="container">
+    <a href="{% url 'login' %}"style="margin-right:30px;margin-top:10px;float:right;text-decoration:none;">Go Back</a>
+<h2 style="margin-left:180px; font-size:30px;">Signup</h2>
+
+<form method="post">
+  {% csrf_token %}
+    {{form.as_p}}
+  <button type="submit" class="btn btn-success">Sign Up</button>
+
+</form>
+    </div>
+</body>
+</html>

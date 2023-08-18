@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <style>
+    </style>
+</head>
+<body style="background-color:grey;">
+<div class="container" style="background: rgba(255,255,255,0.5);">
+
+  <h1>Open Account</h1>
+      <a href="{% url 'view_all' %}" style="color:blue;">Go Back</a>
+    <form method="post" action="" style="margin-top:-30px;">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input class="button" type="submit" value="Submit">
+
+</form>
+    </div>
+
+</body>
+
+</html>

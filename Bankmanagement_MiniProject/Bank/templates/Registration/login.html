@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <style>
+        body{
+        margin: 0;
+        padding:0;
+        height:100vh;
+        width:100%;
+        opacity:0.9;
+        }
+        .container{
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%);
+        width:450px;
+        background-color: #f9f9f0;
+        border-radius: 15px;
+        height:350px;
+        }
+        h3{
+        font-size:30px;
+        text-align:center;
+        font-weight:bold;}
+        form{
+        padding:0 30px;}
+        p{
+        padding:10px 30px;
+        text-align:center;}
+        .bttn{
+        width:25%;
+        height:40px;
+        margin:0 150px;
+        border-radius:10px;
+        border:0;
+        font-weight: bold;
+        background-color: #ff004f;}
+
+        a{text-decoration:None;}
+        .bttn:hover{
+        background-color:grey;}
+    </style>
+</head>
+<body style="background-image: url('{% static 'images/bgd.jpg' %}');">
+<div class="container">
+<h3>Login</h3>
+<form method="post">
+  {% csrf_token %}
+  {{form.as_p}}
+  <button type="submit" class="bttn">Login</button>
+</form>
+</div>
+</body>
+
+
+    </style>
+</head>

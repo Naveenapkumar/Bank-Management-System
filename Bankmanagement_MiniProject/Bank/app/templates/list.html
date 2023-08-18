@@ -1,0 +1,62 @@
+{% extends 'home.html' %}
+{% block content %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Customers List</title>
+    <script src="https://kit.fontawesome.com/828b5c6132.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/828b5c6132.js" crossorigin="anonymous"></script>
+    <style>
+     h1{
+     text-align:centre;}
+     a{
+     color:black;}
+     td i:hover{
+     color:red;}
+    </style>
+  </head>
+  <body>
+  <h1 style="margin:30px 600px;font-size:30px;font-weight:bold;">Customers List</h1>
+    <table class="table table-success table-striped" style="margin-top:50px;margin-left:100px;width:1300px;">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Email</th>
+      <th scope="col">Mobile</th>
+      <th scope="col">Date of Birth</th>
+      <th scope="col">Account Number</th>
+      <th scope="col">Account Type</th>
+      <th colspan="5" scope="col">Actions</th>
+    </tr>
+  </thead>
+      {% for x in custms %}
+  <tbody>
+    <tr>
+      <td>{{x.name}}</td>
+      <td>{{x.Gender}}</td>
+      <td>{{x.email}}</td>
+      <td>{{x.mobile}}</td>
+      <td>{{x.DOB}}</td>
+      <td>{{x.account_number}}</td>
+      <td>{{x.account_type}}</td>
+      <td><a href="{% url 'delete' x.id %}"><i class="fa-sharp fa-solid fa-trash"></i></a></td>
+      <td><a href="{% url 'update' x.id %}"><i class="fa-solid fa-pen-to-square"></i></a></td>
+      <td><a href="{% url 'detail' x.id %}"><i class="fa-sharp fa-regular fa-eye"></i></a></td>
+    </tr>
+
+  </tbody>
+      {% endfor %}
+</table>
+
+<footer style="background-image:linear-gradient(#033747,#012733);height:40px;margin-top:180px;">
+  <h2 style="text-align:centre;font-size:15px;margin-left:650px;margin-bottom:100px;color:white;">@2023 www.bms.com</h2>
+</footer>
+    {% endblock content %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+  </body>
+</html>

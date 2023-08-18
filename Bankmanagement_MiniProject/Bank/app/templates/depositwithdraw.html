@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <style>
+
+    </style>
+</head>
+<body>
+<form action="{% url 'transaction' %}" method="POST">
+        {% csrf_token %}
+  <div class="container" style="height:200px;padding:10px 40px;">
+      <h1>Deposit/Withdraw Money</h1>
+    <input type="text" id="name" name="name" placeholder="Name" value="{{name}}">
+    <input type="number" id="account_number" name="account_number" placeholder="Enter the account number" value="{{account_number}}">
+     <input type="text" id="transaction" name="transaction" placeholder="transaction" value="{{transaction}}">
+     <input type="number" id="amount" name="amount" placeholder="amount" value="{{amount}}">
+    <button type="submit" class="button" style="height:30px;width:80px;padding-right:15px;margin:40px 300px;">Submit</button>
+  </div>
+</form>
+<a href="{% url 'balance' %}" style="color:blue;float:right;margin-right:100px;margin-top:50px;">Go Back</a>
+
+</body>
+</html>

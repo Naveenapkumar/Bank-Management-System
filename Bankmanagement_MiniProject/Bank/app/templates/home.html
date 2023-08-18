@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bank Mangagement System</title>
+    {% load static %}
+    <link href="{% static 'css/style2.css' %}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/828b5c6132.js" crossorigin="anonymous"></script>
+    <style>
+       h1{
+          font-size:40px;
+          margin-left:500px;}
+       #contact .main{
+          margin-top:300px;}
+      .nav-item{
+        margin-right:40px;
+      }
+      .nav-link{
+      color:white
+      }
+      .nav-link:hover{
+      background:grey;}
+      a{
+      margin-right:-10px;}
+    </style>
+  </head>
+  <body>
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="#" style="margin-top:-5px;font-size:25px;font-weight:bold;color:white;">Bank Management System</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" style=" margin-right:50px;" id="navbarSupportedContent">
+      <ul class="navbar-nav my-2 my-lg-0" >
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="{% url 'home' %}" style="color:white;">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#content" style="color:white;">About</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="{% url 'add_customer' %}" tabindex="-1" aria-disabled="true" style="color:white;">Add Account</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'view_all' %}" tabindex="-1" aria-disabled="true" style="color:white;">View All</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'transaction' %}" tabindex="-1" aria-disabled="true" style="color:white;">Deposit</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" href="{% url 'transaction' %}" tabindex="-1" aria-disabled="true" style="color:white;">Withdraw</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="{% url 'transfer' %}" tabindex="-1" aria-disabled="true" style="color:white;">Transfer Money</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'balance' %}" tabindex="-1" aria-disabled="true" style="color:white;">Balance Enquiry</a>
+        </li>
+                  {% if user.is_authenticated %}
+         <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}" style="color:white;">Logout</a></li>
+          {% else %}
+         <li class="nav-item"><a class="nav-link" href="{% url 'login' %}" style="color:white;">Sign In</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'signup' %}" style="color:white;"><i class="fa-solid fa-user-plus"></i></a></li>
+          {% endif %}
+
+      </ul>
+
+
+    </div>
+  </div>
+</nav>
+
+{% block content %}
+    <div class="main" style="background-image: url('{% static 'images/bankimage_background.jpg' %}');margin-top:-35px;margin-right:50px;background-position:cover;height:100vh;width:100%;background-repeat:no-repeat;">
+        <a href="#content"><button class="btn btn-light" style="margin:300px 150px;">Show More</button></a>
+</div>
+
+<section id="content">
+    <h1 style="margin-bottom:60px;">Bank Management System</h1>
+    <div class="main">
+            <div class="col" style="background-image: url('{% static 'images/bank_about.jpg' %}');background-position:cover;height:50vh;width:500px;background-repeat:no-repeat;">
+
+            </div>
+        <div class="col">
+            <p style="margin-top:-300px;margin-left:600px;font-size:20px;">The bank management system is a web based application for maintaining a person's account in a bank.This system helps banks and financial institutions manage their operations and transaction.
+            This system also provides a secure platform for transactions,ensuring that customer's personal and fianancial information is kept safe.</p>
+        </div>
+
+
+    </div>
+</section>
+
+
+
+<section id="contact">
+    <div class="main">
+        <h1>Contact the BMS Support Team</h1>
+        <p style="margin-left:100px;font-size:20px;">For all questions (about signing up, password problems, what and how to report, using BMS, or any other issue), call or write:</p>
+        <div class="images"><img src="{% static 'images/phone.svg' %}" width="200px" style="margin-left:100px;">
+
+        <img src="{% static 'images/email.svg' %}" width="200px" style="float:right;margin-right:100px;">
+            <p style="margin-left:150px;">001-2222-333</p>
+             <p style="float:right;margin-right:100px;margin-top:-30px;">bmsenquiry@gmail.com</p>
+             </div>
+    </div>
+</section>
+
+<footer style="background-image:linear-gradient(#033747,#012733);height:40px;margin-top:100px;">
+  <h2 style="text-align:centre;font-size:15px;margin-left:650px;margin-bottom:100px;color:white;">@2023 www.bms.com</h2>
+</footer>
+
+{% endblock content %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  </body>
+</html>
